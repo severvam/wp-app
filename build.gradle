@@ -1,0 +1,49 @@
+plugins {
+	id 'org.springframework.boot' version '2.2.4.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id 'java'
+	id 'groovy'
+}
+
+group = 'com.code.screening'
+version = '20.2.0'
+sourceCompatibility = JavaVersion.VERSION_11
+
+ext {
+    spockVersion = '1.3-groovy-2.5'
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	implementation 'com.h2database:h2'
+	implementation 'org.liquibase:liquibase-core'
+	implementation 'org.springdoc:springdoc-openapi-ui:1.2.30'
+
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	compileOnly 'org.hibernate:hibernate-jpamodelgen'
+	annotationProcessor('org.hibernate:hibernate-jpamodelgen')
+
+	testImplementation 'org.codehaus.groovy:groovy-all:2.5.9'
+	testImplementation "org.spockframework:spock-core:${spockVersion}"
+	testImplementation "org.spockframework:spock-spring:${spockVersion}"
+	testImplementation 'net.bytebuddy:byte-buddy:1.10.8'
+	testImplementation 'org.objenesis:objenesis:3.1'
+	testImplementation 'org.apache.httpcomponents:httpclient:4.5.11'
+
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+}

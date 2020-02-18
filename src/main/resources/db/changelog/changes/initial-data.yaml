@@ -1,0 +1,111 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: insert-currencies
+      author: alexander.severgin
+      changes:
+        - insert:
+            tableName: currency
+            columns:
+              - column:
+                  name: id
+                  valueNumeric: 1
+              - column:
+                  name: code
+                  value: EUR
+        - insert:
+            tableName: currency
+            columns:
+              - column:
+                  name: id
+                  valueNumeric: 2
+              - column:
+                  name: code
+                  value: USD
+
+  - changeSet:
+      id: insert-responsible-managers
+      author: alexander.severgin
+      changes:
+        - insert:
+            tableName: user
+            columns:
+              - column:
+                  name: id
+                  valueNumeric: 1
+              - column:
+                  name: display_name
+                  value: Albert Einstein
+        - insert:
+            tableName: user
+            columns:
+              - column:
+                  name: id
+                  valueNumeric: 2
+              - column:
+                  name: display_name
+                  value: Marie Sklodowska Curie
+
+  - changeSet:
+      id: insert-customers
+      author: alexander.severgin
+      changes:
+        - insert:
+            tableName: customer
+            columns:
+              - column:
+                  name: id
+                  valueNumeric: 1
+              - column:
+                  name: name
+                  value: Neil
+              - column:
+                  name: surname
+                  value: Armstrong
+        - insert:
+            tableName: customer
+            columns:
+              - column:
+                  name: id
+                  valueNumeric: 2
+              - column:
+                  name: name
+                  value: Buzz
+              - column:
+                  name: surname
+                  value: Aldrin
+
+  - changeSet:
+      id: insert-offers
+      author: alexander.severgin
+      changes:
+        - insert:
+            tableName: offer
+            columns:
+              - column:
+                  name: id
+                  valueNumeric: 1
+              - column:
+                  name: price
+                  valueNumeric: 120.45
+              - column:
+                  name: currency_id
+                  valueNumeric: 1
+              - column:
+                  name: status
+                  value: EXPIRED
+              - column:
+                  name: created_date_time
+                  valueComputed: now()
+              - column:
+                  name: expiry_date_time
+                  valueComputed: now()
+              - column:
+                  name: description
+                  value: Some interesting description
+              - column:
+                  name: customer_id
+                  valueNumeric: 1
+              - column:
+                  name: responsible_manager_id
+                  valueNumeric: 1

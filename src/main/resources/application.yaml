@@ -1,0 +1,6 @@
+server:
+  port: 3000
+
+offer:
+  expirationTime: 10
+

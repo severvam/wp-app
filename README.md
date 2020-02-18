@@ -18,13 +18,13 @@ Two options how to run application.
 ./gradlew bootRun
 ```
 
-2. Build and run jar
+2. Build and run jar:
 
 ```shell script
 ./gradlew clean build && java -jar build/libs/worldpay-app-20.2.0.jar
 ```
 
-Application is REST service, so no explicit frontend is created. For tests or available endpoint review you can use swagger-ui with contract description.
+Application is REST service, so no explicit frontend is created. For tests or available endpoint review you can use swagger-ui with contract description.\
 Swagger address: `http://localhost:3000/swagger-ui.html`
 
 ### Technologies and frameworks
